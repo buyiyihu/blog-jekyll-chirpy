@@ -1,6 +1,6 @@
 ---
 title: gunicorn 文档学习笔记与配置实践
-date: 2020-08-26 23:55:35 +0800
+date: 2021-08-26 23:55:35 +0800
 categories: [Webservice, 阅读笔记]
 tags: [deploy, 阅读笔记] 
 toc: true

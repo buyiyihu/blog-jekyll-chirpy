@@ -1,6 +1,6 @@
 ---
 title: 树形结构数据存储之Nested Intervals
-date: 2022-12-20 23:53:23 +0800
+date: 2022-12-22 23:53:23 +0800
 categories: [algorithm, python]
 tags: [algorithm,design] 
 toc: true
