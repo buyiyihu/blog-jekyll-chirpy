@@ -133,6 +133,8 @@ geogebra原图
 
 根据输入的树形结构生成位置值的计算较为简单，此处略过，后续会放到本人的github中
 
+（更新，代码段见 [gist](https://gist.github.com/buyiyihu/765a794ad4c9e40429c03ff28fa24328)）
+
 根据位置值解析出相对位置
 ```python
 from math import gcd
@@ -164,17 +166,29 @@ class Parser
     def parse_position(cls, dp: Tuple[int], bd: Tuple[int]):
         _, (nomi, deno) = cls._sum_and_diff(dp, bd)
         structure = []
+        # structure stores the node's position in the tree, 
+        # each value in the list represents the relative position 
+        # when walking from the root to the node  
         low, high, pos = 0, deno << 1, 0
+        # low, high represent the up and down bound of the value
+        # pos stands for the relative position of siblings 
         while True:
             mid = (low + high) >> 1
             if nomi > mid:
+                # Value is bigger than mid, means it is the sub node 
+                # of the current postion's node
                 structure.append(pos)
                 pos = 0
                 low = mid
             elif nomi < mid:
+                # Value is smallere than mid, means it is the sub node 
+                # of the silbings of the current postion's node, 
+                # so add the pos and keep searching.
                 pos += 1
                 high = mid
             else:
+                # Equaling means the current position 
+                # is exactly the node we are searching
                 structure.append(pos)
                 break
         return structure
