@@ -108,7 +108,7 @@ In [3]: b = A(1, b=2)
 
 4. module中没有__all__时，
      - ```from module import *``` 不导单下划线开头的变量，但手动指明（```import _a```）可以导入
-     - 有```__all__```时，```from module import ×``` 只导```__all__```中的变量，手动依然可以导所有。
+     - 有```__all__```时，```from module import *``` 只导```__all__```中的变量，手动依然可以导所有。
      - 如果```__all__```中有不存在的变量，会在导包时报 ```AttributeError: module '<module>' has no attribute '<attr>'```，```__all_```_所在文件本身不会报错，即使-O也会报
 
 5. ```from module import *```只能在module层级用，在方法或类用会直接报 ```SyntaxError: import * only allowed at module level```
